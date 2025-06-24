@@ -127,3 +127,8 @@ MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = 'music_nation:home'
 LOGOUT_REDIRECT_URL = 'music_nation:home'
 LOGIN_URL = 'music_nation:login'
+
+import os
+import dj_database_url
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
