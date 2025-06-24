@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: musefy
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn djangoplayer.wsgi:application"
+    staticPublishPath: staticfiles
