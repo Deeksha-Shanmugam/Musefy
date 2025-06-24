@@ -1,0 +1,39 @@
+{% extends 'music_nation/base.html' %}
+
+{%block title%}
+{%endblock%}
+{%block content%}
+  <ul class="album-list">
+    <h2>{{ album.album_name }}</h2>
+    {% if album.album_artist == user %}
+    {# <a href="{% url 'music_nation:delete_album' username album %}">Delete</a> #}
+    <a href="{% url 'music_nation:add_song' username album %}">Add new song</a>
+    {% endif %}
+
+    {% for song in songs %}
+      <li>
+        {{ song.song_name }}<br/>
+        <audio controls preload="auto" class="playlist-audio" id="audio-{{ forloop.counter }}">
+          <source src="{{ song.song_file.url }}" type="audio/mp3">
+        </audio>
+      </li><hr/>
+    {% endfor %}
+
+    
+  </ul>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const audios = document.querySelectorAll('.playlist-audio');
+      for(let i = 0; i < audios.length; i++) {
+        audios[i].addEventListener('ended', function() {
+          const nextAudio = audios[i + 1];
+          if(nextAudio) {
+            nextAudio.play();
+          }
+        });
+      }
+    });
+  </script>
+{% endblock %}
+    
