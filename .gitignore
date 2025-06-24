@@ -1,0 +1,27 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Virtual env
+venv/
+myenv/
+
+# Static & media
+staticfiles/
+media/
+
+# Django secret files
+.env
+*.log
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Migrations (optional if you want to reset them often)
+**/migrations/*.pyc
+**/migrations/__pycache__/
