@@ -25,7 +25,7 @@ SECRET_KEY = '#cj_8@i9#ra%7&ihfgx+q^3sx+4nz)%_bx#ihf^h_7xarcfi!f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['musefy.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
