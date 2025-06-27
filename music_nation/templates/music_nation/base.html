@@ -2,6 +2,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- ✅ Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VNRBDRYR88"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VNRBDRYR88');
+    </script>
+
     <title>{% block title %}MusicNation{% endblock %}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,19 +34,16 @@
             </li>
             <li class="li-left site-title">
               <h2 class="base-a">Musefy</h2>
-              
             </li>
             {% if user.is_authenticated %}
             <li class="li-right">
-  <a href="#" class="base-a" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-    <h2>Logout</h2>
-  </a>
-  <form id="logout-form" method="post" action="{% url 'music_nation:logout' %}" style="display: none;">
-    {% csrf_token %}
-  </form>
-</li>
-
-
+              <a href="#" class="base-a" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <h2>Logout</h2>
+              </a>
+              <form id="logout-form" method="post" action="{% url 'music_nation:logout' %}" style="display: none;">
+                {% csrf_token %}
+              </form>
+            </li>
             <li class="li-right">
               <a class="base-a" href="{% url 'music_nation:add_album' user %}"><h2>Add Album</h2></a>
             </li>
