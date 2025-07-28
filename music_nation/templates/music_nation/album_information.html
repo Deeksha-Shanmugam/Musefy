@@ -33,6 +33,14 @@
           }
         });
       }
+      // Pause all other audios when one starts playing
+      document.addEventListener('play', function(e){
+        for(let i = 0; i < audios.length; i++){
+          if(audios[i] != e.target){
+            audios[i].pause();
+          }
+        }
+      }, true);
     });
   </script>
 {% endblock %}
